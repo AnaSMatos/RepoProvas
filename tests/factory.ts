@@ -7,8 +7,24 @@ function createUser() {
     };
 };
 
+function invalidEmail(){
+    return {
+        email: faker.internet.userName,
+        password: "12345678"
+    }
+}
+
+function invalidPassword(){
+    return {
+        email: faker.internet.email,
+        password: "111"
+    }
+}
+
 const factory = {
-    createUser
+    createUser,
+    invalidEmail,
+    invalidPassword
 };
 
 export default factory;

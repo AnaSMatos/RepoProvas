@@ -19,25 +19,28 @@ export async function insert(data: TestInfo){
 export async function getCategoryIdByName(name: string) {
     const id = await prisma.categories.findUnique({
         where: {name}
-    })
-
-    return id.id;
+    }) 
+    if(id){
+        return id.id;
+    }
 }
 
 export async function getTeacherIdByName(name: string) {
     const id = await prisma.teachers.findUnique({
         where: {name}
     })
-
-    return id.id;
+    if(id){
+        return id.id;
+    }
 }
 
 export async function getDisciplineIdByName(name: string) {
     const id = await prisma.disciplines.findUnique({
         where: {name}
     })
-
-    return id.id;
+    if(id){
+        return id.id;
+    }
 }
 
 export async function getTeacherDiscipline(teacherId: number, disciplineId: number) {

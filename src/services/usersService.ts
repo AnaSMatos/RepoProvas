@@ -10,7 +10,6 @@ async function createUser(data:UserInfo){
     const {email, password} = data;
 
     const emailExists = await getUserByEmail(email);
-    console.log(emailExists)
     if(emailExists.length > 0){
         throw{
             type: "conflict",
