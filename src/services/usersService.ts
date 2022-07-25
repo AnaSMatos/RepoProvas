@@ -2,7 +2,6 @@ import { insertUser, getUserByEmail, UserInfo } from "../repositories/usersRepos
 import { generateToken } from "../utils/token.js";
 import bcrypt from "bcrypt"
 import dotenv from "dotenv";
-import jwt from "jsonwebtoken";
 
 dotenv.config();
 

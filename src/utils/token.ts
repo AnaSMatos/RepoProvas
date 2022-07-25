@@ -6,7 +6,7 @@ dotenv.config()
 export function decodeToken (receivedToken){
     const token = receivedToken.split('Bearer ').join('');
     let infoToken;
-    jwt.verify(token, 'secret', (err: any, decoded: any) => {
+    jwt.verify(token, process.env.JWT_TOKEN, (err, decoded) => {
         if (err) {
             throw { 
                 type: "unauthorized",
@@ -22,15 +22,4 @@ export function decodeToken (receivedToken){
 
 export function generateToken(userId:number) {
     return jwt.sign( { userId }, process.env.JWT_TOKEN);
-}
-
-export function getUserIdbyToken(authorization) {
-    const checkToken = decodeToken(authorization)
-        if(!checkToken){
-            throw{
-                type: "unauthorized",
-                message: "Invalid token"
-            }
-        }
-        return checkToken
 }
