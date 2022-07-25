@@ -19,7 +19,7 @@ export interface testInfo {
 
 
 export async function insertTest(data: testInfo){
-    const teacherId = await getTeacherIdByName(data.name)
+    const teacherId = await getTeacherIdByName(data.teacher)
     if(!teacherId){
         throw {
 			type: "notFound",
